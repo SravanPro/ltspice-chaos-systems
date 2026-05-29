@@ -1,0 +1,11 @@
+# ignore everything
+*
+
+# allow folders
+!*/
+
+# allow only .asc files
+!*.asc
+
+# also keep gitignore itself
+!.gitignore
