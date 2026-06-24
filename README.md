@@ -14,6 +14,10 @@ $$X = \frac{x}{f}, \quad Y = \frac{y}{f}, \quad Z = \frac{z}{f}$$
 
 ### 1. Lorenz Oscillator
 
+<img width="1216" height="872" alt="Image" src="https://github.com/user-attachments/assets/de6228ce-e22b-4e7a-9422-8b003e878238" />
+
+<img width="1072" height="843" alt="Image" src="https://github.com/user-attachments/assets/8174f580-4ee2-424a-b1a4-0da4ed5ffed8" />
+
 * **Original:**
 
 $$\frac{dx}{dt} = \sigma(y-x)$$
@@ -33,6 +37,10 @@ $$\frac{dZ}{dt} = fXY-\beta Z$$
 * **Standard Parameters:** $\sigma = 10$, $\rho = 28$, $\beta = \frac{8}{3}$
 
 ### 2. Rössler Attractor
+
+<img width="1172" height="847" alt="Image" src="https://github.com/user-attachments/assets/9a9d68ee-4417-4597-b89a-d5e3de800d1a" />
+
+<img width="1080" height="846" alt="Image" src="https://github.com/user-attachments/assets/05525ba7-a50a-4ee3-84cd-b0a526f778fc" />
 
 * **Original:**
 
@@ -54,6 +62,10 @@ $$\frac{dZ}{dt} = \frac{b}{f} + Z(fX-c)$$
 
 ### 3. Duffing Oscillator (Chaos Mode)
 
+<img width="1918" height="653" alt="Image" src="https://github.com/user-attachments/assets/ccf28fd6-61e2-4215-9077-d9b12462e13b" />
+
+<img width="1917" height="830" alt="Image" src="https://github.com/user-attachments/assets/acf5499b-ccc6-4f0b-b8fc-c0b1d0c8baee" />
+
 * **General Form:**
 
 $$\ddot{x} = ax - d\dot{x} - bx^3 - g\sin(\omega t)$$
@@ -69,6 +81,10 @@ $$\ddot{x} + 0.1\dot{x} - x + x^3 = -0.85\sin(\omega t)$$
 ---
 
 ## ⚡ 4-Quadrant Analog Multiplier Design
+
+<img width="1455" height="828" alt="Image" src="https://github.com/user-attachments/assets/3dff9699-1d2e-40d0-8ce5-e9d1616b2f88" />
+
+<img width="1915" height="840" alt="Image" src="https://github.com/user-attachments/assets/28ec6308-0486-45a3-b033-5583aa8d4db3" />
 
 The multiplier is built around four BJTs exploiting the exponential $V_{BE}$–$I_C$ relationship. The goal is to produce $V_o = V_1 \cdot V_2$.
 
