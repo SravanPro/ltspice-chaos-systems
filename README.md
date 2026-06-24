@@ -66,26 +66,53 @@ $$\ddot{x} + d\dot{x} - ax + bx^3 = -g\sin(\omega t)$$
 
 $$\ddot{x} + 0.1\dot{x} - x + x^3 = -0.85\sin(\omega t)$$
 
-
 ---
 
 ## ⚡ 4-Quadrant Analog Multiplier Design
 
----
+The multiplier is built around four BJTs exploiting the exponential $V_{BE}$–$I_C$ relationship. The goal is to produce $V_o = V_1 \cdot V_2$.
 
-## 🛠️ Circuit Implementation Blocks
+### BJT KVL Constraint
 
-Each chaotic system maps directly onto an analog schematic utilizing:
+Applying KVL around the base-emitter loop of the four transistors and using $V_{BE} = \eta V_T \ln(I/I_S)$:
 
-* **Integrators:** Configured using an op-amp with a feedback capacitor ($C$) and input resistor ($R$), where the time constant $\tau = RC$ establishes the time-scaling of the chaotic attractor.
-* **Summing Amplifiers:** Used to combine the multiple differential terms (e.g., calculating $\sigma Y - \sigma X$).
-* **Inverters:** Unity-gain inverting configurations used strictly to flip the polarity of state variables where negative coefficients are required.
+$$V_{BE_1} + V_{BE_2} = V_{BE_3} + V_{BE_4}$$
 
----
+$$\ln\!\left(\frac{I_1 I_2}{I_S^2}\right) = \ln\!\left(\frac{I_3 I_4}{I_S^2}\right)$$
 
-## 📈 How to Run the Simulations
+$$I_1 I_2 = I_3 I_4$$
 
-1. **Clone the Repository:**
-   ```bash
-   git clone https://github.com/yourusername/chaotic-oscillators-ltspice.git
-   ```
+### Collector Current Expressions
+
+Using op-amp virtual short and KCL at each node:
+
+$$I_1 = \frac{5}{R} + \frac{V_1}{2R}$$
+
+$$I_2 = \frac{5}{R} + \frac{V_2}{2R}$$
+
+$$I_3 = \frac{5}{R}$$
+
+$$I_4 = \frac{5}{R} + \frac{V_o}{R_o} + \frac{V_1+V_2}{2R}$$
+
+### Substitution into (1)
+
+Expanding the left-hand side:
+
+$$I_1 I_2 = \frac{25}{R^2} + \frac{5(V_1+V_2)}{2R^2} + \frac{V_1 V_2}{4R^2}$$
+
+Expanding the right-hand side:
+
+$$I_3 I_4 = \frac{25}{R^2} + \frac{5V_o}{R \cdot R_o} + \frac{5(V_1+V_2)}{2R^2}$$
+
+The $\dfrac{25}{R^2}$ and $\dfrac{5(V_1+V_2)}{2R^2}$ terms cancel, leaving:
+
+$$\frac{V_1 V_2}{4R^2} = \frac{5\,V_o}{R \cdot R_o}$$
+
+### General Result
+
+$$\boxed{V_o = \frac{R_o}{20R} \cdot V_1 V_2}$$
+
+### With $R_o = 20R$ (i.e. $R_o = 20\text{k}\Omega$, $R = 1\text{k}\Omega$)
+
+$$V_o = V_1 \cdot V_2$$
+
